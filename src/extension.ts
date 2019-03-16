@@ -13,14 +13,32 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+	let run = vscode.commands.registerCommand('ispy.run', () => {
+		const terminal = vscode.window.activeTerminal;
+		const editor = vscode.window.activeTextEditor;
+		if (editor !== undefined) {
+			const filename = editor.document.fileName;
+			if(terminal !== undefined && editor !== undefined) {
+				if(editor.document.isDirty) {
+					editor.document.save();
+				}	
+				terminal.sendText(`%run -i ${filename}`);
+			} else {
+				vscode.window.showErrorMessage('No terminal available');
+			}
+		} else {
+			vscode.window.showErrorMessage('No editor available');
+		}
+	});
+	let start = vscode.commands.registerCommand('ispy.start', () => {
+		const terminal = vscode.window.activeTerminal;
+		if(terminal !== undefined) {
+			terminal.sendText('ipython --pylab');
+		}
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(run);
+	context.subscriptions.push(start);
 }
 
 // this method is called when your extension is deactivated

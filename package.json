@@ -1,7 +1,7 @@
 {
 	"name": "ispy",
 	"displayName": "ispy",
-	"description": "ipython + vscode",
+	"description": "ipython + vscode = spyder IDE like environment in vscode",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.32.0"
@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:ispy.run",
+		"onCommand:ispy.start"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "ispy.start",
+				"title": "ispy: Start Ipython Iterpreter"
+			},
+			{
+				"command": "ispy.run",
+				"title": "ispy: Run File"
 			}
 		]
 	},
