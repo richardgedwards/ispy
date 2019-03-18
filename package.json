@@ -8,6 +8,13 @@
 	"engines": {
 		"vscode": "^1.32.0"
 	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
 	"categories": [
 		"Other"
 	],
@@ -18,22 +25,35 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{"command": "ispy.start","title": "ispy: Start Ipython Iterpreter"},
-			{"command": "ispy.run", "title": "ispy: Run File"}
+			{
+				"command": "ispy.start",
+				"title": "ispy: Start Ipython Iterpreter"
+			},
+			{
+				"command": "ispy.run",
+				"title": "ispy: Run File"
+			}
 		],
 		"keybindings": [
-			{"command": "ispy.run", "key": "ctrl+enter", "when": "editorLangId==python"},
-			{"command": "ispy.start", "key": "ctrl+i"},
-			{ "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
-			{ "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
-		]		
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+			{
+				"command": "ispy.run",
+				"key": "ctrl+enter",
+				"when": "editorLangId==python"
+			},
+			{
+				"command": "ispy.start",
+				"key": "ctrl+i"
+			},
+			{
+				"key": "ctrl+`",
+				"command": "workbench.action.terminal.focus"
+			},
+			{
+				"key": "ctrl+`",
+				"command": "workbench.action.focusActiveEditorGroup",
+				"when": "terminalFocus"
+			}
+		]
 	},
 	"devDependencies": {
 		"typescript": "^3.3.1",
@@ -41,5 +61,8 @@
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"testrunner": "^1.0.4"
 	}
 }
