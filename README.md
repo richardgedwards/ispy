@@ -1,65 +1,20 @@
 # ispy README
 
-This is the README for your extension "ispy". After writing up a brief description, we recommend including the following sections.
+ispy = ipython + vscode
+
+Simple extension to work with ipython within vscode.  Provides the beginnings of a Spyder-like expereience within vscode. 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+ispy.run:  Executes the active .py file in the currently running ipython terminal.
+ispy.start:  Convenience function to start ipython in the the active terminal
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+The user is responsible for having an ipython terminal up and running before issuing the command "ispy.run".  This can be as simple as opening up the terminal and running "ipython".  A convenicence command for doing this is "ispy:start" or using the shortcut "ctrl+i".
 
-## Extension Settings
+After ipython is running, simply issue the command 'ispy.run' or use the shortcut 'ctrl+enter' and the active .py file will be executed in the ipython terminal.  The user can then continue to work in the ipython terminal interactively, including all of the %magic commands that ipython offers.  For example, use $who to see user defined and variables and %clear to clear the currently defined variables. 
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+It is possible to have more than one ipython terminal running at a given time.  The command 'ispy.run' simply runs the python code in the ative editior in the acive terminal.  If you want to run the code in another terminal, simply make that terminal active and issue the 'ispy:run' command again.
 
-For example:
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

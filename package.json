@@ -2,6 +2,7 @@
 	"name": "ispy",
 	"displayName": "ispy",
 	"description": "ipython + vscode = spyder IDE like environment in vscode",
+	"publisher": "RichardEdwards",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.32.0"
