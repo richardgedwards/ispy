@@ -16,5 +16,3 @@ The user is responsible for having an ipython terminal up and running before iss
 After ipython is running, simply issue the command 'ispy.run' or use the shortcut 'ctrl+enter' and the active .py file will be executed in the ipython terminal.  The user can then continue to work in the ipython terminal interactively, including all of the %magic commands that ipython offers.  For example, use $who to see user defined and variables and %clear to clear the currently defined variables. 
 
 It is possible to have more than one ipython terminal running at a given time.  The command 'ispy.run' simply runs the python code in the ative editior in the acive terminal.  If you want to run the code in another terminal, simply make that terminal active and issue the 'ispy:run' command again.
-
-
