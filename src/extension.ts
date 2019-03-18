@@ -46,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
 				if(editor.document.isDirty) {
 					editor.document.save();
 				}	
-				terminal.sendText(`%run -i ${editor.document.fileName}`);
+				terminal.sendText(`%run -i ${editor.document.fileName}\n`);
 			} else {
 				vscode.window.showWarningMessage('No terminal available');
 			}
