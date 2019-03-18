@@ -16,15 +16,15 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "ispy.start",
-				"title": "ispy: Start Ipython Iterpreter"
-			},
-			{
-				"command": "ispy.run",
-				"title": "ispy: Run File"
-			}
-		]
+			{"command": "ispy.start","title": "ispy: Start Ipython Iterpreter"},
+			{"command": "ispy.run", "title": "ispy: Run File"}
+		],
+		"keybindings": [
+			{"command": "ispy.run", "key": "ctrl+enter", "when": "editorLangId==python"},
+			{"command": "ispy.start", "key": "ctrl+i"},
+			{ "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
+			{ "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+		]		
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
