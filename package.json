@@ -19,30 +19,36 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:ispy.run",
-		"onCommand:ispy.start"
+		"onCommand:ispy.createipythonterminal",
+		"onCommand:ispy.execfile",
+		"onCommand:ispy.execselected"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "ispy.start",
-				"title": "ispy: Start Ipython Iterpreter"
+				"command": "ispy.createipythonterminal",
+				"title": "ispy: Create Ipython Terminal"
 			},
 			{
-				"command": "ispy.run",
-				"title": "ispy: Run File"
+				"command": "ispy.execfile",
+				"title": "ispy: Run File in Terminal"
+			},
+			{
+				"command": "ispy.execselected",
+				"title": "ispy: Run Selection/Line in Terminal"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "ispy.run",
-				"key": "ctrl+enter",
+				"command": "ispy.execselected",
+				"key": "ctrl+shift+enter",
 				"when": "editorLangId==python"
 			},
 			{
-				"command": "ispy.start",
-				"key": "ctrl+i"
+				"command": "ispy.execfile",
+				"key": "ctrl+enter",
+				"when": "editorLangId==python"
 			},
 			{
 				"key": "ctrl+`",
