@@ -7,3 +7,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+
+##[0.0.2] - 2019-04-02
+
+- Added command to send current line/selection to the ipython terminal.
+- Extension tries to start an ipython terminal if one is not already running or active.
