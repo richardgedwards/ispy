@@ -4,7 +4,7 @@
 	"description": "Simple minimalistic extension to work with ipython within vscode",
 	"publisher": "RichardEdwards",
 	"repository": "https://github.com/richardgedwards/ispy",
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.32.0"
