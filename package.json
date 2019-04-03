@@ -4,29 +4,9 @@
 	"description": "ipython + vscode = spyder IDE like environment in vscode",
 	"publisher": "RichardEdwards",
 	"repository": "https://github.com/richardgedwards/ispy",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.32.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:ispy.run",
-		"onCommand:ispy.start"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{"command": "ispy.start","title": "ispy: Start Ipython Iterpreter"},
-			{"command": "ispy.run", "title": "ispy: Run File"}
-		],
-		"keybindings": [
-			{"command": "ispy.run", "key": "ctrl+enter", "when": "editorLangId==python"},
-			{"command": "ispy.start", "key": "ctrl+i"},
-			{ "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
-			{ "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
-		]		
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -35,11 +15,83 @@
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:ispy.createipythonterminal",
+		"onCommand:ispy.execfile",
+		"onCommand:ispy.execselected"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "ispy.createipythonterminal",
+				"title": "Create Ipython Terminal",
+				"category": "ispy"
+			},
+			{
+				"command": "ispy.execfile",
+				"title": "Run File in Ipython Terminal",
+				"category": "ispy"
+			},
+			{
+				"command": "ispy.execselected",
+				"title": "Run Selection/Line in Ipython Terminal",
+				"category": "ispy"
+			}
+		],
+
+		"configuration": {
+			"type": "object",
+			"title": "Ispy",
+			"properties": {
+				"ispy.cmdargs.ipython": {
+					"type": "string",
+					"default": "--pylab",
+					"markdownDescription": "Specifies the flags for `ipython`. Issue `ipython --help` within terminal for documentation."
+				},
+				"ispy.cmdargs.runmagic": {
+					"type": "string",
+					"default": "-i",
+					"markdownDescription": "Specifies the flags for ipython `%run` magic command. Issue `%run?` within ipython termminal for documentation"
+				}
+			}
+		},
+		
+		"keybindings": [
+			{
+				"command": "ispy.execselected",
+				"key": "ctrl+shift+enter",
+				"when": "editorLangId==python"
+			},
+			{
+				"command": "ispy.execfile",
+				"key": "ctrl+enter",
+				"when": "editorLangId==python"
+			},
+			{
+				"key": "ctrl+`",
+				"command": "workbench.action.terminal.focus"
+			},
+			{
+				"key": "ctrl+`",
+				"command": "workbench.action.focusActiveEditorGroup",
+				"when": "terminalFocus"
+			}
+		]
+	},
+	
 	"devDependencies": {
 		"typescript": "^3.3.1",
 		"vscode": "^1.1.28",
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"testrunner": "^1.0.4"
 	}
+
 }
