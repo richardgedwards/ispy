@@ -28,17 +28,38 @@
 		"commands": [
 			{
 				"command": "ispy.createipythonterminal",
-				"title": "ispy: Create Ipython Terminal"
+				"title": "Create Ipython Terminal",
+				"category": "ispy"
 			},
 			{
 				"command": "ispy.execfile",
-				"title": "ispy: Run File in Terminal"
+				"title": "Run File in Ipython Terminal",
+				"category": "ispy"
 			},
 			{
 				"command": "ispy.execselected",
-				"title": "ispy: Run Selection/Line in Terminal"
+				"title": "Run Selection/Line in Ipython Terminal",
+				"category": "ispy"
 			}
 		],
+
+		"configuration": {
+			"type": "object",
+			"title": "Ispy",
+			"properties": {
+				"ispy.cmdargs.ipython": {
+					"type": "string",
+					"default": "--pylab",
+					"markdownDescription": "Specifies the flags for `ipython`. Issue `ipython --help` within terminal for documentation."
+				},
+				"ispy.cmdargs.runmagic": {
+					"type": "string",
+					"default": "-i",
+					"markdownDescription": "Specifies the flags for ipython `%run` magic command. Issue `%run?` within ipython termminal for documentation"
+				}
+			}
+		},
+		
 		"keybindings": [
 			{
 				"command": "ispy.execselected",
@@ -61,6 +82,7 @@
 			}
 		]
 	},
+	
 	"devDependencies": {
 		"typescript": "^3.3.1",
 		"vscode": "^1.1.28",
@@ -71,4 +93,5 @@
 	"dependencies": {
 		"testrunner": "^1.0.4"
 	}
+
 }
